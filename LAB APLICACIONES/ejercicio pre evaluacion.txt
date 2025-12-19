@@ -1,0 +1,45 @@
+Practica pre evaluación
+
+Crear una tabla con 4 campos que no pueden estar vacíos y uno de ellos debe
+ser la clave primaria y otro solo debe recibir valores únicos e insertar 10
+elementos con el id comenzando en 1000. Actualizar la tabla sumando la columna llamada “condición” e ingresar por
+defecto el valor “Nuevo” Realizar la consulta ordenada por un campo de manera descendente. Contar cuantos elementos distintos hay de un mismo campo. Mostrar el nombre o marca de un componente que este en el orden de precios
+entre 10000 y 2000
+
+DROP TABLE IF EXISTS "Libros";
+
+CREATE TABLE "Libros"(
+"ID_Libros" INTEGER,
+"Nombre" TEXT NOT NULL UNIQUE,
+"Autor" TEXT NOT NULL, 
+"Precio" INTEGER NOT NULL,
+"Tipo de tapa" TEXT NOT NULL,
+PRIMARY KEY ("ID_Libros")
+
+); 
+ALTER TABLE "Libros" ADD COLUMN "Condicion" TEXT NOT NULL DEFAULT "Nuevo";
+
+INSERT INTO "Libros" VALUES (1000, "Juramentada", "Brandon Sanderson", 45000, "Dura", "Nuevo");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("El aliento de los dioses", "Brandon Sanderson", 30000, "Blanda");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("It", "Stephen King", 30000, "Blanda"); 
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("La sombra del viento", "Carlos Ruiz Zafón", 32800, "Blanda");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("El nombre del viento", "Patrick Rothfuss", 58900, "Dura");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("Holly", "Stephen King", 32000, "Blanda");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("El imperio final", "Brandon Sanderson", 33000, "Blanda");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("El principito", "Antoine de Saint Exupery", 8000, "Blanda");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("El alquimista", "Paulo Coelho", 24000, "Blanda");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("El problema de los tres cuerpos", "Cixin Liu", 25919, "Blanda");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("El señor de los anillos 1 La comunidad del Anillo", "J. R. R. Tolkien", 36200, "Blanda");
+INSERT INTO "Libros" ("Nombre", "Autor", "Precio", "Tipo de tapa") VALUES ("Harry potter y la piedra filosofal", "J. K. Rowling", 65500, "Dura");
+
+
+SELECT DISTINCT "Autor" FROM "Libros" count;
+
+SELECT "Nombre" FROM "Libros" where "Precio" BETWEEN 15000 AND 34000; 
+
+SELECT "Nombre" FROM "Libros" ORDER BY "Precio" ASC; 
+
+
+
+
+
